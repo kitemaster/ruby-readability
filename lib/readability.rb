@@ -185,7 +185,8 @@ module Readability
 
     def title
       title = @html.css("title").first
-      title ? title.text : nil
+      title_text = title ? title.text : nil
+      title_text || @html.css('h1') ? @html.css('h1').text : nil
     end
 
     # Look through the @html document looking for the author
